@@ -15,7 +15,7 @@ class helpInteractionListener extends Listener {
         if (!interaction.isButton()) return;
 
         const content = await this.buildCategory(help, interaction.customId)
-        return await interaction.reply({content: content.join(''), split: '\u200b'})
+        return await interaction.reply({content: content.join(''), ephemeral: true})
 
     }
 
