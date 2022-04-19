@@ -25,5 +25,8 @@
             "error",
             "always"
         ]
-    }
+    },
+    "eslint.rules.customizations": [
+        { "rule": "*", "severity": "warn" }
+      ]
 }
