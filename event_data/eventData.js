@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+
 /* Unused data files
 const itemMap = require("./data/itemMapping.json");
 const itemRarity = require("./data/itemRarity.json");
@@ -23,7 +24,7 @@ class LAEvent {
 
     [util.inspect.custom](depth, opts) {
     // Gives the class a custom string representation when logging to the console.
-        return `Event: ${eventNames[this.id][0]}, ID: ${this.id}, Date: ${
+        return `Event: ${getEventName(this.id)}, ID: ${this.id}, Date: ${
             months[this.month]
         } ${this.day}, Time: ${this.time}`;
     }
@@ -47,6 +48,10 @@ function logAll() {
             }
         }
     });
+}
+
+function getEventName(id) {
+    return eventNames[id][0];
 }
 
 function getAllEvents(log = false) {
@@ -79,7 +84,7 @@ function getAllEvents(log = false) {
     return outputEvents;
 }
 
-function getAllEventsById(id, log = false) {
+function getAllEventsWithId(id, log = false) {
     const eventName = eventNames[id][0];
     let outputEvents = [];
 
@@ -110,11 +115,11 @@ function getAllEventsById(id, log = false) {
     return outputEvents;
 }
 
-function getAllEventsByName(name, log = false) {
+function getAllEventsWithName(name, log = false) {
     const eventId = Object.keys(eventNames).find(
         (id) => eventNames[id][0] == name
     );
-    return getAllEventsById(eventId, log);
+    return getAllEventsWithId(eventId, log);
 }
 
 function getAllEventsOnDate(month_, day_, log = false) {
@@ -208,8 +213,8 @@ function sortEventsByTime(eventCollection, log = false) {
 module.exports = {
     logAll,
     getAllEvents,
-    getAllEventsById,
-    getAllEventsByName,
+    getAllEventsWithId,
+    getAllEventsWithName,
     getAllEventsOnDate,
     filterEventsAfterTime,
     sortEventsByTime,
