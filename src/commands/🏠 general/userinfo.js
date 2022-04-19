@@ -10,7 +10,7 @@ class userinfoCommand extends SubCommandPluginCommand {
     }
 
     async messageRun(message, args) {
-        const target = await args.pick('member') || message.member;
+        const target = args.finished ? message.member : await args.pick('member')
         return await message.channel.send({
             embeds: [await this.constructUserinfoEmbed(target)]
         });
