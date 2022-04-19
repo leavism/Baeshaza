@@ -4,7 +4,8 @@ const { MessageEmbed } = require('discord.js');
 class userinfoCommand extends SubCommandPluginCommand {
     constructor(context, options) {
         super(context, {
-            ...options
+            ...options,
+            description: 'Get basic info. on a Discord user.'
         });
     }
 

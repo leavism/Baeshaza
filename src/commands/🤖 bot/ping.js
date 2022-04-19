@@ -4,9 +4,7 @@ class PingCommand extends Command {
     constructor(context, options) {
         super(context, {
             ...options,
-            name: 'ping',
-            aliases: ['pong'],
-            description: 'ping pong'
+            description: 'Get the current bot and Discord API latency.'
         });
     }
 
@@ -21,6 +19,4 @@ class PingCommand extends Command {
     }
 }
 
-module.exports = {
-    PingCommand
-};
+exports.PingCommand = PingCommand

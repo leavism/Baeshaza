@@ -1,11 +1,12 @@
 const { version: sapphireVersion } = require('@sapphire/framework');
 const { SubCommandPluginCommand } = require('@sapphire/plugin-subcommands');
-const { MessageEmbed, version: discordVersion, process} = require('discord.js');
+const { MessageEmbed, version: discordVersion} = require('discord.js');
 
-class statsCommand extends SubCommandPluginCommand {
+class StatsCommand extends SubCommandPluginCommand {
     constructor(context, options) {
         super(context, {
-            ...options
+            ...options,
+            description: 'Get the current stats for the bot.'
         });
     }
 
@@ -47,4 +48,4 @@ class statsCommand extends SubCommandPluginCommand {
 
 }
 
-exports.statsCommand = statsCommand;
+exports.statsCommand = StatsCommand;
