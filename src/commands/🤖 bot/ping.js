@@ -19,4 +19,4 @@ class PingCommand extends Command {
     }
 }
 
-exports.PingCommand = PingCommand
+exports.PingCommand = PingCommand;
