@@ -3,8 +3,11 @@ const { SapphireClient } = require('@sapphire/framework');
 const has = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
 
 const client = new SapphireClient(
-    { defaultPrefix: config.prefix,
-        intents: ['GUILDS', 'GUILD_MESSAGES']}
+    { 
+        defaultPrefix: config.prefix,
+        intents: ['GUILDS', 'GUILD_MESSAGES'],
+        loadMessageCommandListeners: true
+    }
 );
 
 client.buildHelp = async function () {

@@ -1,17 +1,27 @@
 const { SubCommandPluginCommand } = require('@sapphire/plugin-subcommands');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 
 class userinfoCommand extends SubCommandPluginCommand {
     constructor(context, options) {
         super(context, {
             ...options,
-            description: 'Get basic info. on a Discord user.',
+            description: 'Get basic info. on a Discord user.'
         });
     }
 
-    async messageRun(message, args) {
-        const target = args.finished ? message.member : await args.pick('member');
-        return await message.channel.send({
+    registerApplicationCommands(registry) {
+        const builder = new SlashCommandBuilder()
+            .setName(this.name)
+            .setDescription(this.description)
+            .addUserOption(option => option.setName('user').setDescription('The target user').setRequired(false));
+        registry.registerChatInputCommand(builder);
+
+    }
+
+    async chatInputRun(interaction) {
+        const target = interaction.options.getMember('user') ? interaction.options.getMember('user') : interaction.member;
+        await interaction.reply({
             embeds: [await this.constructUserinfoEmbed(target)],
         });
     }

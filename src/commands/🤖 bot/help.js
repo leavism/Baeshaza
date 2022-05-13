@@ -6,11 +6,12 @@ class HelpCommand extends SubCommandPluginCommand {
     constructor(context, options) {
         super(context, {
             ...options,
-            description: 'Displays all of the commands.'
+            description: 'Displays all of the commands.',
+            chatInputCommand: { register: true }
         });
     }
 
-    async messageRun(message) {
+    async chatInputRun(interaction) {
         const helpContent = await this.container.client.buildHelp();
 
         const row = new MessageActionRow();
@@ -23,7 +24,7 @@ class HelpCommand extends SubCommandPluginCommand {
             );
         });
 
-        return await message.channel.send({
+        return await interaction.reply({
             embeds: [await this.buildEmbed(helpContent)],
             components: [row]
         });

@@ -12,7 +12,7 @@ class helpInteractionListener extends Listener {
 
     async run(interaction) {
         const help = await this.container.client.buildHelp();
-        if (!interaction.isButton()) return;
+        if (interaction.message.interaction.commandName !== 'help') return;
 
         const content = await this.buildCategory(help, interaction.customId);
         return await interaction.reply({content: content.join(''), ephemeral: true});
