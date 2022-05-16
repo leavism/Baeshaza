@@ -16,7 +16,6 @@ class userinfoCommand extends SubCommandPluginCommand {
             .setDescription(this.description)
             .addUserOption(option => option.setName('user').setDescription('The target user').setRequired(false));
         registry.registerChatInputCommand(builder);
-
     }
 
     async chatInputRun(interaction) {
