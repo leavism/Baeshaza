@@ -30,4 +30,4 @@ String.prototype.titleCase = function () {
     );
 };
 
-client.login(config.token);
+client.login(config.devToken);
