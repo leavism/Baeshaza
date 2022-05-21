@@ -8,9 +8,10 @@
     "discord.js": "^13.6.0"
   },
   "scripts": {
-    "start": "node src/app.js"
+    "start": "npx nodemon --watch src"
   },
   "devDependencies": {
-    "eslint": "^8.13.0"
+    "eslint": "^8.13.0",
+    "nodemon": "^2.0.16"
   }
 }
