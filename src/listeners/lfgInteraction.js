@@ -1,6 +1,6 @@
 const { Listener } = require('@sapphire/framework');
 const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
-
+const data = require('./data/abyssal_dungeon.json');
 
 class lfgInteractionListener extends Listener {
     constructor(context, options = {}) {
@@ -36,28 +36,23 @@ class lfgInteractionListener extends Listener {
     }
 
     buildAbyssalDungeonSelector() {
+        let abyssalDungeonsMenuItems = [];
+        data.dungeons.forEach(dungeon => {
+            abyssalDungeonsMenuItems.push(
+                { 
+                    label: dungeon.label,
+                    description: dungeon.menu_description,
+                    value: dungeon.menu_value
+                }
+            );
+        });
+
         return new MessageActionRow()
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId('select-lfg-create-abyssal-dungeon')
                     .setPlaceholder('Nothing selected')
-                    .addOptions([
-                        {
-                            label: 'Normal Oreha\'s Well',
-                            description: 'I hate Seto',
-                            value: 'normal_orehas_well',
-                        },
-                        {
-                            label: 'Hard Oreha\'s Well',
-                            description: 'I hate Seto',
-                            value: 'hard_orehas_well',
-                        },
-                        {
-                            label: 'Ark of Arrogance',
-                            description: 'Eww orbs?',
-                            value: 'ark_of_arrogance',
-                        },
-                    ]),
+                    .addOptions(abyssalDungeonsMenuItems),
             );
     }
 }

@@ -1,8 +1,8 @@
 const { Listener } = require('@sapphire/framework');
-const { MessageActionRow, MessageButton } = require('discord.js');
+const { MessageButton, MessageActionRow, MessageSelectMenu } = require('discord.js');
 const data = require('./data/abyssal_dungeon.json');
 
-class abyssalDungeonInteractionListener extends Listener {
+class abyssalDungeonClassInteractionListener extends Listener {
     constructor(context, options = {}) {
         super(context, {
             ...options,
@@ -12,19 +12,20 @@ class abyssalDungeonInteractionListener extends Listener {
     }
 
     async run(interaction) {
-        if (interaction.customId !== 'select-lfg-create-abyssal-dungeon') return;
+        if (!interaction.isSelectMenu()) return;
+        const advancedClasses = [...new Set(data.classes.map(item => item.label.toLowerCase()))];
+        if (!advancedClasses.includes(interaction.values[0])) return;
 
-        const dungeon = data.dungeons.find(({ menu_value }) => menu_value == interaction.values[0]);
+        const selectedClass = data.classes.find(({ label }) => label.toLowerCase() == interaction.values[0]);
         const partyEmbed = interaction.message.embeds[0];
         let fields = partyEmbed.fields;
-
-        fields[1].value = `**0 / ${dungeon.max_members}**`;
         
-        partyEmbed
-            .setTitle(`${dungeon.label}`)
-            .setDescription(`${interaction.message.embeds[0].description}\n${dungeon.description}`)
-            .setImage(`${dungeon.url}`)
-            .setFields(fields);
+        if (selectedClass.value == 'dps') {
+            fields[2].value += `${interaction.user}`;
+        } else if (selectedClass.value == 'support') {
+            fields[3].value += `${interaction.user}`;
+        }
+        partyEmbed.setFields(fields);
 
         return await interaction.update(
             {
@@ -34,7 +35,6 @@ class abyssalDungeonInteractionListener extends Listener {
         );
     }
 
-    // If you add another button, remember to add it in the validId in abyssalDungeonEnrollmentInteraction
     buildEnrollSelector(){
         return new MessageActionRow()
             .addComponents([
@@ -49,15 +49,13 @@ class abyssalDungeonInteractionListener extends Listener {
                 new MessageButton()
                     .setCustomId('abyssal-leave')
                     .setLabel('Leave')
-                    .setStyle('SECONDARY')
-                    .setDisabled(true),
+                    .setStyle('SECONDARY'),
                 new MessageButton()
                     .setCustomId('abyssal-tentative')
                     .setLabel('Tentative')
                     .setStyle('SECONDARY')
-                    .setDisabled(true)
             ]);
     }
 }
 
-exports.abyssalDungeonInteractionListener = abyssalDungeonInteractionListener;
+exports.abyssalDungeonClassInteractionListener = abyssalDungeonClassInteractionListener;
