@@ -1,0 +1,84 @@
+{
+    "dungeons": [
+        {
+            "label": "Hard Oreha's Well",
+            "menu_description": "I hate hard Seto.",
+            "menu_value": "hard_ohrehas_well",
+            "description": "We are running both hard Oreha's Well dungeons.",
+            "url": "https://i.imgur.com/jhVa8cw.jpg",
+            "max_members": 4
+        },
+        {
+            "label": "Normal Oreha's Well",
+            "menu_description": "I hate Seto.",
+            "menu_value": "normal_ohrehas_well",
+            "description": "We are running both normal Oreha's Well dungeons.",
+            "url": "https://i.imgur.com/LBN1wuy.jpg",
+            "max_members": 4
+        },
+        {
+            "label": "Gate of Paradise",
+            "menu_description": "Let's go. In and out, 20 minute adventure.",
+            "menu_value": "gate_of_paradise",
+            "description": "We are running all three Gate of Paradise dungeons.",
+            "url": "https://i.imgur.com/jhVa8cw.jpg",
+            "max_members": 8
+        },
+        {
+            "label": "Ark of Arrogance",
+            "menu_description": "Orbs? Ewwww.",
+            "menu_value": "ark_of_arrogance",
+            "description": "We are running both hard Ark of Arrogance dungeons.",
+            "url": "https://i.imgur.com/jhVa8cw.jpg",
+            "max_members": 4
+        },
+        {
+            "label": "Phantom Palace",
+            "menu_description": "Baeshaza wants you to fail stagger check.",
+            "menu_value": "phantom_palace",
+            "description": "We are running both hard Phantom Palace dungeons.",
+            "url": "https://i.imgur.com/jhVa8cw.jpg",
+            "max_members": 4
+        },
+        {
+            "label": "Ancient Elveria",
+            "menu_description": "What mechanics?",
+            "menu_value": "ancient_elveria",
+            "description": "We are running both Ancient Elveria dungeons.",
+            "url": "https://i.imgur.com/jhVa8cw.jpg",
+            "max_members": 4
+        }
+    ],
+    "classes": [
+        {
+            "label": "Paladin",
+            "value": "support",
+            "description": "I heal every 30 seconds.",
+            "type": "abyssal-support"
+        },
+        {
+            "label": "Berserker",
+            "value": "dps",
+            "description": "SWORD GO BRRRR HAHAHAHA",
+            "type": "abyssal-dps"
+        },
+        {
+            "label": "Gunlancer",
+            "value": "dps",
+            "description": "Am I DPS or support?",
+            "type": "abyssal-dps"
+        },
+        {
+            "label": "Bard",
+            "value": "support",
+            "description": "My identity skill is my heal.",
+            "type": "abyssal-support"
+        },
+        {
+            "label": "Sorceress",
+            "value": "dps",
+            "description": "I squishy",
+            "type": "abyssal-dps"
+        }
+    ]
+}
