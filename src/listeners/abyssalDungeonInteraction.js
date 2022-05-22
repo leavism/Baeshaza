@@ -1,8 +1,8 @@
-const { Listener } = require('@sapphire/framework');
+const { lfgInteractionListener } = require('./lfgInteraction');
 const { MessageActionRow, MessageButton } = require('discord.js');
 const data = require('./data/abyssal_dungeon.json');
 
-class abyssalDungeonInteractionListener extends Listener {
+class abyssalDungeonInteractionListener extends lfgInteractionListener {
     constructor(context, options = {}) {
         super(context, {
             ...options,
@@ -29,34 +29,9 @@ class abyssalDungeonInteractionListener extends Listener {
         return await interaction.update(
             {
                 embeds: [partyEmbed],
-                components: [this.buildEnrollSelector()]
+                components: [this.buildEnrollButtons()]
             }
         );
-    }
-
-    // If you add another button, remember to add it in the validId in abyssalDungeonEnrollmentInteraction
-    buildEnrollSelector(){
-        return new MessageActionRow()
-            .addComponents([
-                new MessageButton()
-                    .setCustomId('abyssal-dps')
-                    .setLabel('DPS')
-                    .setStyle('PRIMARY'),
-                new MessageButton()
-                    .setCustomId('abyssal-support')
-                    .setLabel('Support')
-                    .setStyle('PRIMARY'),
-                new MessageButton()
-                    .setCustomId('abyssal-leave')
-                    .setLabel('Leave')
-                    .setStyle('SECONDARY')
-                    .setDisabled(true),
-                new MessageButton()
-                    .setCustomId('abyssal-tentative')
-                    .setLabel('Tentative')
-                    .setStyle('SECONDARY')
-                    .setDisabled(true)
-            ]);
     }
 }
 

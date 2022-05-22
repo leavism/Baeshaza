@@ -1,5 +1,5 @@
 const { Listener } = require('@sapphire/framework');
-const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { MessageEmbed, MessageActionRow, MessageSelectMenu, MessageButton } = require('discord.js');
 const data = require('./data/abyssal_dungeon.json');
 
 class lfgInteractionListener extends Listener {
@@ -55,6 +55,33 @@ class lfgInteractionListener extends Listener {
                     .addOptions(abyssalDungeonsMenuItems),
             );
     }
+    // If you add another button, remember to add it in the validId in abyssalDungeonEnrollmentInteraction
+    buildEnrollButtons(dpsDisabled = false, supportDisabled = false, leaveDisabled = false, tentativeDisbaled = false){
+        return new MessageActionRow()
+            .addComponents([
+                new MessageButton()
+                    .setCustomId('abyssal-dps')
+                    .setLabel('DPS')
+                    .setStyle('PRIMARY')
+                    .setDisabled(dpsDisabled),
+                new MessageButton()
+                    .setCustomId('abyssal-support')
+                    .setLabel('Support')
+                    .setStyle('PRIMARY')
+                    .setDisabled(supportDisabled),
+                new MessageButton()
+                    .setCustomId('abyssal-leave')
+                    .setLabel('Leave')
+                    .setStyle('SECONDARY')
+                    .setDisabled(leaveDisabled),
+                new MessageButton()
+                    .setCustomId('abyssal-tentative')
+                    .setLabel('Tentative')
+                    .setStyle('SECONDARY')
+                    .setDisabled(tentativeDisbaled)
+            ]);
+    }
+
 }
 
 exports.lfgInteractionListener = lfgInteractionListener;
