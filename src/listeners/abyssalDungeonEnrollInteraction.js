@@ -1,8 +1,8 @@
-const { Listener } = require('@sapphire/framework');
-const { MessageButton, MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { lfgInteractionListener } = require('./lfgInteraction');
+const { MessageActionRow, MessageSelectMenu } = require('discord.js');
 const data = require('./data/abyssal_dungeon.json');
 
-class abyssalDungeonEnrollInsteractionListener extends Listener {
+class abyssalDungeonEnrollInsteractionListener extends lfgInteractionListener {
     constructor(context, options = {}) {
         super(context, {
             ...options,
@@ -22,9 +22,17 @@ class abyssalDungeonEnrollInsteractionListener extends Listener {
             let dps = fields[2].value;
             let support = fields[3].value;
 
-            dps = dps.replaceAll(`${interaction.user}`, '');
-            support = support.replaceAll(`${interaction.user}`, '');
-            // if (dps === '\u200b') dps = '\u200b';
+            const emojiDPS = dps.substring(
+                dps.indexOf('<:'),
+                dps.indexOf('>') + 1);
+
+            const emojiSupport =  support.substring(
+                support.indexOf('<:'),
+                support.indexOf('>') + 1);
+
+            dps = dps.replaceAll(`${emojiDPS}${interaction.user}`, '');
+            support = support.replaceAll(`${emojiSupport}${interaction.user}`, '');
+
             fields[2].value = dps;
             fields[3].value = support;
 
@@ -34,7 +42,7 @@ class abyssalDungeonEnrollInsteractionListener extends Listener {
             return await interaction.update(
                 {  
                     embeds: [partyEmbed],
-                    components: [this.buildEnrollSelector()]
+                    components: [this.buildEnrollButtons()]
                 }
             );
         }
@@ -42,7 +50,7 @@ class abyssalDungeonEnrollInsteractionListener extends Listener {
         return await interaction.update(
             {  
                 embeds: [partyEmbed],
-                components: [this.buildEnrollSelector(), this.buildClassSelector(interaction.customId)]
+                components: [this.buildEnrollButtons(), this.buildClassSelector(interaction.customId)]
             }
         );
     }
@@ -68,32 +76,6 @@ class abyssalDungeonEnrollInsteractionListener extends Listener {
                     .setPlaceholder('Nothing selected')
                     .addOptions(advancedClassMenuItems),
             );
-    }
-
-    buildEnrollSelector(dpsDisabled = false, supportDisabled = false, leaveDisabled = true, tentativeDisbaled = true){
-        return new MessageActionRow()
-            .addComponents([
-                new MessageButton()
-                    .setCustomId('abyssal-dps')
-                    .setLabel('DPS')
-                    .setStyle('PRIMARY')
-                    .setDisabled(dpsDisabled),
-                new MessageButton()
-                    .setCustomId('abyssal-support')
-                    .setLabel('Support')
-                    .setStyle('PRIMARY')
-                    .setDisabled(supportDisabled),
-                new MessageButton()
-                    .setCustomId('abyssal-leave')
-                    .setLabel('Leave')
-                    .setStyle('SECONDARY')
-                    .setDisabled(leaveDisabled),
-                new MessageButton()
-                    .setCustomId('abyssal-tentative')
-                    .setLabel('Tentative')
-                    .setStyle('SECONDARY')
-                    .setDisabled(tentativeDisbaled)
-            ]);
     }
 }
 

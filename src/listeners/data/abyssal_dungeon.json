@@ -54,31 +54,36 @@
             "label": "Paladin",
             "value": "support",
             "description": "I heal every 30 seconds.",
-            "type": "abyssal-support"
+            "type": "abyssal-support",
+            "emoji": "<:Paladin:977658851404939365>"
         },
         {
             "label": "Berserker",
             "value": "dps",
             "description": "SWORD GO BRRRR HAHAHAHA",
-            "type": "abyssal-dps"
+            "type": "abyssal-dps",
+            "emoji": "<:Berserker:977658851627241482>"
         },
         {
             "label": "Gunlancer",
             "value": "dps",
             "description": "Am I DPS or support?",
-            "type": "abyssal-dps"
+            "type": "abyssal-dps",
+            "emoji": "<:Gunlancer:977658851509817454>"
         },
         {
             "label": "Bard",
             "value": "support",
             "description": "My identity skill is my heal.",
-            "type": "abyssal-support"
+            "type": "abyssal-support",
+            "emoji": "<:Bard:977658851685970031>"
         },
         {
             "label": "Sorceress",
             "value": "dps",
             "description": "I squishy",
-            "type": "abyssal-dps"
+            "type": "abyssal-dps",
+            "emoji": "<:Sorceress:977658851790823424>"
         }
     ]
 }

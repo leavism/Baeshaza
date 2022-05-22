@@ -1,8 +1,8 @@
-const { Listener } = require('@sapphire/framework');
+const { lfgInteractionListener } = require('./lfgInteraction');
 const { MessageButton, MessageActionRow, MessageSelectMenu } = require('discord.js');
 const data = require('./data/abyssal_dungeon.json');
 
-class abyssalDungeonClassInteractionListener extends Listener {
+class abyssalDungeonClassInteractionListener extends lfgInteractionListener {
     constructor(context, options = {}) {
         super(context, {
             ...options,
@@ -21,40 +21,18 @@ class abyssalDungeonClassInteractionListener extends Listener {
         let fields = partyEmbed.fields;
         
         if (selectedClass.value == 'dps') {
-            fields[2].value += `${interaction.user}`;
+            fields[2].value += `${selectedClass.emoji}${interaction.user}`;
         } else if (selectedClass.value == 'support') {
-            fields[3].value += `${interaction.user}`;
+            fields[3].value += `${selectedClass.emoji}${interaction.user}`;
         }
         partyEmbed.setFields(fields);
 
         return await interaction.update(
             {
                 embeds: [partyEmbed],
-                components: [this.buildEnrollSelector()]
+                components: [this.buildEnrollButtons()]
             }
         );
-    }
-
-    buildEnrollSelector(){
-        return new MessageActionRow()
-            .addComponents([
-                new MessageButton()
-                    .setCustomId('abyssal-dps')
-                    .setLabel('DPS')
-                    .setStyle('PRIMARY'),
-                new MessageButton()
-                    .setCustomId('abyssal-support')
-                    .setLabel('Support')
-                    .setStyle('PRIMARY'),
-                new MessageButton()
-                    .setCustomId('abyssal-leave')
-                    .setLabel('Leave')
-                    .setStyle('SECONDARY'),
-                new MessageButton()
-                    .setCustomId('abyssal-tentative')
-                    .setLabel('Tentative')
-                    .setStyle('SECONDARY')
-            ]);
     }
 }
 
