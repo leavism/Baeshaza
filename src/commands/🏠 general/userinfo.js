@@ -22,11 +22,11 @@ class userinfoCommand extends SubCommandPluginCommand {
     async chatInputRun(interaction) {
         const target = interaction.options.getMember('user') ? interaction.options.getMember('user') : interaction.member;
         await interaction.reply({
-            embeds: [await this.constructUserinfoEmbed(target)],
+            embeds: [await this.buildUserinfoEmbed(target)],
         });
     }
 
-    async constructUserinfoEmbed(memberObj) {
+    async buildUserinfoEmbed(memberObj) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const createdDaysAgo = `(${Math.round(
             (new Date() - memberObj.user.createdAt) / (24 * 60 * 60 * 1000)
