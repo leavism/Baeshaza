@@ -6,12 +6,13 @@ class StatsCommand extends SubCommandPluginCommand {
     constructor(context, options) {
         super(context, {
             ...options,
-            description: 'Get the current stats for the bot.'
+            description: 'Get the current stats for the bot.',
+            chatInputCommand: { register: true }
         });
     }
 
-    async messageRun(message) {
-        return await message.channel.send({
+    async chatInputRun(interaction) {
+        return await interaction.channel.send({
             embeds: [await this.constructStatsEmbed()]
         });
     }
