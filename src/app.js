@@ -5,7 +5,7 @@ const has = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
 const client = new SapphireClient(
     { 
         defaultPrefix: config.prefix,
-        intents: ['GUILDS', 'GUILD_MESSAGES'],
+        intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS'],
         loadMessageCommandListeners: true
     }
 );
@@ -19,6 +19,10 @@ client.buildHelp = async function () {
         help[command.category].push(command);
     }));
     return help;
+};
+
+client.findChannel = async function(guild, name) {
+    return guild.channels.cache.find(channel => channel.name == name);
 };
 
 String.prototype.titleCase = function () {

@@ -11,8 +11,10 @@ class helpInteractionListener extends Listener {
     }
 
     async run(interaction) {
-        const help = await this.container.client.buildHelp();
+        if (!interaction.isButton()) return;
         if (interaction.message.interaction.commandName !== 'help') return;
+        
+        const help = await this.container.client.buildHelp();
 
         const content = await this.buildCategory(help, interaction.customId);
         return await interaction.reply({content: content.join(''), ephemeral: true});
@@ -25,7 +27,7 @@ class helpInteractionListener extends Listener {
         
         const commands = helpObj[category];
         for (let commandIndex = 0; commandIndex < commands.length; commandIndex++){
-            helpMessage.push(`• ${this.container.client.fetchPrefix()}${commands[commandIndex].name} :: ${commands[commandIndex].description}\n`);
+            helpMessage.push(`• /${commands[commandIndex].name} :: ${commands[commandIndex].description}\n`);
         }
 
         helpMessage.push('```');
