@@ -12,7 +12,7 @@ class StatsCommand extends SubCommandPluginCommand {
     }
 
     async chatInputRun(interaction) {
-        return await interaction.channel.send({
+        return await interaction.reply({
             embeds: [await this.constructStatsEmbed()]
         });
     }
