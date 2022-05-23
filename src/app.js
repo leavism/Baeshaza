@@ -1,10 +1,10 @@
-const config = require('./config.js');
+// const config = require('./config.js');
 const { SapphireClient } = require('@sapphire/framework');
+const aws = require('aws-sdk');
 const has = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
 
 const client = new SapphireClient(
     { 
-        defaultPrefix: config.prefix,
         intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS'],
         loadMessageCommandListeners: true
     }
@@ -34,4 +34,9 @@ String.prototype.titleCase = function () {
     );
 };
 
-client.login(config.devToken);
+const s3 = new aws.S3({
+    devToken: process.env.devToken,
+    realToken: process.env.realToken
+});
+
+client.login(s3.devToken);
