@@ -12,8 +12,7 @@ class welcomeMessage extends Listener {
 
     async run(member) {
         const welcomeChannel = member.guild.systemChannel;
-        console.log(member.guild);
-        console.log(member.guild.iconURL());
+        
         return welcomeChannel.send({
             embeds: [await this.buildWelcomeEmbed(member)]
         });
