@@ -34,7 +34,4 @@ String.prototype.titleCase = function () {
     );
 };
 
-console.log(process.env);
-console.log(process.env.devToken);
-
-client.login(process.env.devToken);
+client.login(config.devToken);
