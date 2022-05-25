@@ -3,9 +3,12 @@
   "main": "src/app.js",
   "dependencies": {
     "@sapphire/framework": "^3.0.0-next.8803fa8.0",
+    "@sapphire/plugin-scheduled-tasks": "^2.3.3",
     "@sapphire/plugin-subcommands": "^2.2.0",
+    "@sapphire/stopwatch": "^1.4.1",
     "@sapphire/utilities": "^3.6.2",
     "aws-sdk": "^2.1140.0",
+    "bull": "^4.8.3",
     "discord.js": "^13.6.0"
   },
   "scripts": {
