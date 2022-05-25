@@ -1,7 +1,7 @@
-const { Command } = require('@sapphire/framework');
+const { Command, PieceContext } = require('@sapphire/framework');
 
 class PingCommand extends Command {
-    constructor(context, options) {
+    constructor(context = PieceContext, options) {
         super(context, {
             ...options,
             description: 'Get the current bot and Discord API latency.',
@@ -21,8 +21,11 @@ class PingCommand extends Command {
             msg.createdTimestamp - interaction.createdTimestamp
         }ms.`;
 
-        return interaction.editReply(content);
+        this.container.tasks.create('updatePing', { id: interaction.user.id });
+
+        await interaction.editReply(content);
     }
+
 }
 
 exports.PingCommand = PingCommand;
