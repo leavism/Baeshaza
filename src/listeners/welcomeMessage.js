@@ -5,7 +5,6 @@ class welcomeMessage extends Listener {
     constructor(context, options = {}) {
         super(context, {
             ...options,
-            once: true,
             event: 'guildMemberAdd'
         });
     }

@@ -5,8 +5,7 @@ class helpInteractionListener extends Listener {
     constructor(context, options = {}) {
         super(context, {
             ...options,
-            event: 'interactionCreate',
-            once: false
+            event: 'interactionCreate'
         });
     }
 
