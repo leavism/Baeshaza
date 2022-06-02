@@ -1,6 +1,5 @@
 const config = require('./config.js');
 const { SapphireClient } = require('@sapphire/framework');
-const aws = require('aws-sdk');
 const has = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
 
 const client = new SapphireClient(
