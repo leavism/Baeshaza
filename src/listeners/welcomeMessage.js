@@ -24,11 +24,15 @@ class welcomeMessage extends Listener {
         return new MessageEmbed()
             .setTitle(`Welcome to ${member.guild.name}!`)
             .setThumbnail(member.guild.iconURL())
-            .setDescription(`Hey ${member}! You'll be restricted to this channel until you do the following:`)
+            .setDescription(`Hey ${member}! You'll be restricted to this channel until we get you verified. Please introduce yourself and let us know what you're looking for in a guild. Let\'s make sure we fit your needs before you join us!`)
             .addField(
                 'How to get started',
                 `1. Read over ${rulesChannel}.\n2. Introduct yourself in ${welcomeChannel}.\n3. Wait for a leader to verify membership.`,
                 false
+            )
+            .addField(
+                'Ways to introduce yourself',
+                '- What\'s your main and why aren\'t you a sexy gunlancer?\n- Are you looking to clear any specific content?\n- Are you hoping we run our parties on certain days and times?\n- Did you bring the sacrificial goat?'
             )
             .addField(
                 'Want to test the waters?',
