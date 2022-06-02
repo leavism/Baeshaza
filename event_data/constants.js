@@ -15,20 +15,20 @@ const months = {
 
 // Easier to just cache this since it's very inefficient to generate from the dataset
 const adventureIslands = [
-    "Medeia",
-    "Opportunity Isle",
-    "Tranquil Isle",
-    "Oblivion Isle",
-    "Asura Island",
-    "Drumbeat Island",
-    "Forpe",
-    "Snowpang Island",
-    "Phantomwing Island",
-    "Volare Island",
-    "Lagoon Island",
-    "Lush Reed Island",
-    "Monte Island",
-    "Harmony Island"
-]
+    'Medeia',
+    'Opportunity Isle',
+    'Tranquil Isle',
+    'Oblivion Isle',
+    'Asura Island',
+    'Drumbeat Island',
+    'Forpe',
+    'Snowpang Island',
+    'Phantomwing Island',
+    'Volare Island',
+    'Lagoon Island',
+    'Lush Reed Island',
+    'Monte Island',
+    'Harmony Island'
+];
 
 module.exports = { months, adventureIslands };

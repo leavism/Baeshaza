@@ -1,168 +1,82 @@
 {
-  "920404": {
-    "name": "Adrenaline-boosting Fluid",
-    "fileName": "all_quest_01_31.webp"
-  },
-  "920701": { "name": "Back Alley Rum", "fileName": "use_6_49.webp" },
-  "920803": {
-    "name": "Raw Boar Meat",
-    "fileName": "all_quest_02_126.webp"
-  },
-  "921004": { "name": "Blood Pudding Chunk", "fileName": "use_2_24.webp" },
-  "921405": { "name": "Hairplant", "fileName": "use_2_139.webp" },
-  "930605": { "name": "Sapphire Sardine", "fileName": "use_3_167.webp" },
-  "930902": { "name": "Pit-A-Pat Macaron", "fileName": "use_5_213.webp" },
-  "931505": { "name": "Dry-aged Meat", "fileName": "use_2_193.webp" },
-  "931512": {
-    "name": "Hot Chocolate Coffee",
-    "fileName": "all_quest_02_32.webp"
-  },
-  "63200008": { "name": "Wei", "fileName": "use_2_13.webp" },
-  "63200024": { "name": "Thunder Wings", "fileName": "use_2_13.webp" },
-  "63200030": { "name": "Mokamoka", "fileName": "use_2_13.webp" },
-  "63200035": { "name": "Krause", "fileName": "use_2_13.webp" },
-  "63200038": { "name": "Madnick", "fileName": "use_2_13.webp" },
-  "63200039": { "name": "Thar", "fileName": "use_2_13.webp" },
-  "63200050": { "name": "Gnosis", "fileName": "use_2_13.webp" },
-  "63200053": { "name": "Kaysarr", "fileName": "use_2_13.webp" },
-  "63200057": { "name": "Kaldor", "fileName": "use_2_13.webp" },
-  "63200094": { "name": "Varut", "fileName": "use_2_13.webp" },
-  "63200095": { "name": "Prideholme Neria", "fileName": "use_2_13.webp" },
-  "63200102": { "name": "Thunder", "fileName": "use_2_13.webp" },
-  "63200104": { "name": "Meehan", "fileName": "use_2_13.webp" },
-  "63200106": { "name": "Cassleford", "fileName": "use_2_13.webp" },
-  "63200108": { "name": "Alifer", "fileName": "use_2_13.webp" },
-  "63200111": { "name": "Seria", "fileName": "use_2_13.webp" },
-  "63200118": { "name": "Nox", "fileName": "use_2_13.webp" },
-  "63200122": { "name": "Eolh", "fileName": "use_2_13.webp" },
-  "63200136": { "name": "Stern Neria", "fileName": "use_2_13.webp" },
-  "63200144": { "name": "Sian", "fileName": "use_2_13.webp" },
-  "63200146": { "name": "Gideon", "fileName": "use_2_13.webp" },
-  "63200148": { "name": "Payla", "fileName": "use_2_13.webp" },
-  "63200158": { "name": "Lenora", "fileName": "use_2_13.webp" },
-  "63200164": {
-    "name": "Great Castle Neria",
-    "fileName": "use_2_13.webp"
-  },
-  "63200165": { "name": "Piyer", "fileName": "use_2_13.webp" },
-  "63200170": { "name": "Levi", "fileName": "use_2_13.webp" },
-  "63200171": { "name": "Goulding", "fileName": "use_2_13.webp" },
-  "63200174": { "name": "Bergstrom", "fileName": "use_2_13.webp" },
-  "63200185": { "name": "Giant Worm", "fileName": "use_2_13.webp" },
-  "63200188": { "name": "Cadogan", "fileName": "use_2_13.webp" },
-  "63200191": { "name": "Berhart", "fileName": "use_2_13.webp" },
-  "63200192": { "name": "Brinewt", "fileName": "use_2_13.webp" },
-  "63200197": { "name": "Egg of Creation", "fileName": "use_2_13.webp" },
-  "63200205": { "name": "Sir Druden", "fileName": "use_2_13.webp" },
-  "63200206": { "name": "Sir Valleylead", "fileName": "use_2_13.webp" },
-  "63200209": { "name": "Javern", "fileName": "use_2_13.webp" },
-  "63200222": { "name": "Siera", "fileName": "use_2_13.webp" },
-  "63200226": { "name": "Morpheo", "fileName": "use_2_13.webp" },
-  "63200227": { "name": "Morina", "fileName": "use_2_13.webp" },
-  "63200228": { "name": "Madam Moonscent", "fileName": "use_2_13.webp" },
-  "63200305": { "name": "Albion", "fileName": "use_2_13.webp" },
-  "63200308": { "name": "Seto", "fileName": "use_2_13.webp" },
-  "63200309": { "name": "Cicerra", "fileName": "use_2_13.webp" },
-  "63200310": { "name": "Stella", "fileName": "use_2_13.webp" },
-  "70500000": { "name": "Fancier Boquet", "fileName": "all_quest_03_133.webp" },
-  "70500001": {
-    "name": "Prideholme Potato",
-    "fileName": "all_quest_01_108.webp"
-  },
-  "70500002": {
-    "name": "Rethramis Holy Water",
-    "fileName": "all_quest_01_23.webp"
-  },
-  "70500003": {
-    "name": "Yudia Natural Salt",
-    "fileName": "all_quest_01_64.webp"
-  },
-  "70500006": { "name": "Stalwart Cage", "fileName": "all_quest_02_46.webp" },
-  "70500007": {
-    "name": "Dyorika Straw Hat",
-    "fileName": "all_quest_01_183.webp"
-  },
-  "70500008": {
-    "name": "Model of Luterra's Sword",
-    "fileName": "all_quest_01_161.webp"
-  },
-  "70500011": { "name": "Lakebar Tomato Juice", "fileName": "use_1_224.webp" },
-  "70500012": {
-    "name": "Azenaporium Brooch",
-    "fileName": "all_quest_01_57.webp"
-  },
-  "70500013": { "name": "Black Rose", "fileName": "all_quest_02_95.webp" },
-  "70500014": { "name": "Round Glass Piece", "fileName": "use_3_129.webp" },
-  "70500015": { "name": "Mokoko Carrot", "fileName": "all_quest_01_172.webp" },
-  "70500016": {
-    "name": "Oversize Ladybug Doll",
-    "fileName": "all_quest_03_113.webp"
-  },
-  "70500024": { "name": "Magick Cloth", "fileName": "all_quest_01_207.webp" },
-  "70500025": { "name": "Magick Crystal", "fileName": "all_quest_02_71.webp" },
-  "70500026": {
-    "name": "Exquisite Music Box",
-    "fileName": "all_quest_01_56.webp"
-  },
-  "70500027": {
-    "name": "Queen's Knights Application",
-    "fileName": "all_quest_01_141.webp"
-  },
-  "70500028": { "name": "Goblin Yarn", "fileName": "all_quest_01_105.webp" },
-  "70500033": { "name": "Soundstone of Dawn", "fileName": "use_6_10.webp" },
-  "70500034": { "name": "Elemental's Feather", "fileName": "use_6_11.webp" },
-  "70500037": { "name": "Fargar's Beer", "fileName": "use_6_84.webp" },
-  "70500038": { "name": "Broken Dagger", "fileName": "use_6_228.webp" },
-  "70500039": { "name": "Book of Survival", "fileName": "use_6_229.webp" },
-  "70500040": {
-    "name": "Dessicated Wooden Statue",
-    "fileName": "use_6_230.webp"
-  },
-  "70500056": { "name": "Danube's Earrings", "fileName": "use_7_132.webp" },
-  "70500059": { "name": "Hollowfruit", "fileName": "use_7_134.webp" },
-  "70500060": { "name": "Piñata Crafting Set", "fileName": "use_7_135.webp" },
-  "70500061": {
-    "name": "Rainbow Tikatika Flower",
-    "fileName": "use_7_136.webp"
-  },
-  "70501000": { "name": "Surprise Chest", "fileName": "all_quest_02_230.webp" },
-  "70501001": {
-    "name": "Sky Reflection Oil",
-    "fileName": "all_quest_01_117.webp"
-  },
-  "70501002": {
-    "name": "Chain War Chronicles",
-    "fileName": "all_quest_01_155.webp"
-  },
-  "70501003": {
-    "name": "Shy Wind Flower Pollen",
-    "fileName": "all_quest_01_66.webp"
-  },
-  "70501004": {
-    "name": "Angler's Fishing Pole",
-    "fileName": "lifelevel_01_59.webp"
-  },
-  "70501005": { "name": "Fine Gramophone", "fileName": "all_quest_01_90.webp" },
-  "70501006": {
-    "name": "Vern's Founding Coin",
-    "fileName": "all_quest_01_253.webp"
-  },
-  "70501007": {
-    "name": "Sirius's Holy Book",
-    "fileName": "all_quest_03_4.webp"
-  },
-  "70501008": { "name": "Red Moon's Tears", "fileName": "use_6_231.webp" },
-  "70501010": {
-    "name": "Sylvain Queen's Blessing",
-    "fileName": "use_7_133.webp"
-  },
-  "70501011": { "name": "Oreha Viewing Stone", "fileName": "use_7_137.webp" },
-  "70503000": {
-    "name": "Tournament Entrance Stamp",
-    "fileName": "use_8_38.webp"
-  },
-  "70503001": { "name": "Yudia Spellbook", "fileName": "use_8_39.webp" },
-  "70503005": { "name": "Shimmering Essence", "fileName": "use_8_41.webp" },
-  "70503006": { "name": "Energy X7 Capsule", "fileName": "use_8_42.webp" },
-  "70503008": { "name": "Piyer's Secret Textbook", "fileName": "use_8_44.webp" }
+    "4005": ["Proving Grounds Co-op Battle", "achieve_07_42.webp", 250],
+    "4001": ["Proving Grounds Competitive Match", "achieve_13_5.webp", 250],
+    "4003": ["Proving Grounds Deathmatch", "achieve_13_5.webp", 250],
+    "4002": ["Proving Grounds Team Deathmatch", "achieve_13_5.webp", 250],
+    "4004": [
+        "Proving Grounds Team Elimination Match",
+        "achieve_13_5.webp",
+        250
+    ],
+    "2003": ["Siege Registration Period", "achieve_13_28.webp", 250],
+    "2002": ["Raid Match Registration Period", "achieve_13_28.webp", 460],
+    "7046": ["Asura Island", "island_icon_76.webp", 250],
+    "7047": ["Drumbeat Island", "island_icon_95.webp", 250],
+    "7038": ["Forpe", "island_icon_26.webp", 250],
+    "7042": ["Harmony Island", "island_icon_55.webp", 250],
+    "7043": ["Lagoon Island", "island_icon_58.webp", 250],
+    "7049": ["Lush Reed Island", "island_icon_43.webp", 250],
+    "7040": ["Medeia", "island_icon_41.webp", 250],
+    "7041": ["Monte Island", "island_icon_52.webp", 250],
+    "7039": ["Oblivion Isle", "island_icon_35.webp", 250],
+    "7044": ["Opportunity Isle", "island_icon_70.webp", 250],
+    "7050": ["Phantomwing Island", "island_icon_81.webp", 250],
+    "7048": ["Snowpang Island", "island_icon_98.webp", 250],
+    "7045": ["Tranquil Isle", "island_icon_74.webp", 250],
+    "7037": ["Volare Island", "island_icon_8.webp", 250],
+    "7033": ["Alakkir", "island_icon_69.webp", 250],
+    "7005": ["Death's Hold Island", "island_icon_65.webp", 250],
+    "7016": ["Illusion Isle", "island_icon_4.webp", 250],
+    "7013": ["Lullaby Island", "island_icon_5.webp", 250],
+    "7018": ["Spida Island", "island_icon_23.webp", 250],
+    "7014": ["Tooki Island", "island_icon_9.webp", 250],
+    "960": ["Wild Wing Island", "island_icon_122.webp", 250],
+    "8000": ["[Capture Event 1-rank] Medeia", "island_icon_41.webp", 250],
+    "8001": ["[Capture Event 1-rank] Slime Island", "island_icon_68.webp", 250],
+    "6007": ["Gate of Harmony", "island_icon_89.webp", 302],
+    "6001": ["Sailing Co-op: Anikka", "achieve_06_55.webp", 302],
+    "6000": ["Sailing Co-op: Arthetine", "achieve_06_55.webp", 302],
+    "6002": ["Sailing Co-op: Vern", "achieve_06_55.webp", 302],
+    "1002": ["Twisting Chaos Legion", "achieve_13_11.webp", 302],
+    "1003": ["Twisting Darkness Legion", "achieve_13_11.webp", 302],
+    "1001": ["Twisting Phantom Legion", "achieve_13_11.webp", 302],
+    "1004": ["Twisting Plague Legion", "achieve_13_11.webp", 302],
+    "3008": ["Chaotic Chuo", "achieve_14_142.webp", 380],
+    "3005": ["Signatus", "achieve_14_142.webp", 380],
+    "3003": ["Tarsila", "achieve_14_142.webp", 380],
+    "3011": ["Erasmo", "island_icon_38.webp", 460],
+    "6008": ["Gate of Wisdom", "island_icon_89.webp", 460],
+    "5002": ["Nightmare Ghost Ship", "island_icon_91.webp", 460],
+    "6003": ["Sailing Co-op: Rohendel", "achieve_06_55.webp", 460],
+    "7019": ["Shangra", "island_icon_83.webp", 460],
+    "1009": ["Twisting Phantom Legion", "achieve_13_11.webp", 460],
+    "7020": ["Unknown Island", "island_icon_86.webp", 460],
+    "3013": ["Magmadon", "achieve_14_142.webp", 540],
+    "3001": ["Proxima", "achieve_14_142.webp", 540],
+    "7035": ["Gesbroy", "island_icon_87.webp", 600],
+    "6009": ["Gate of Earth", "island_icon_89.webp", 802],
+    "6004": ["Sailing Co-op: Yorn", "achieve_06_55.webp", 802],
+    "1007": ["Twisting Plague Legion", "achieve_13_11.webp", 802],
+    "3006": ["Harvest Lord Incarnate", "achieve_14_142.webp", 880],
+    "3012": ["Kohinorr", "achieve_14_142.webp", 880],
+    "6010": ["Gate of Endurance", "island_icon_89.webp", 960],
+    "6005": ["Sailing Co-op: Feiton", "achieve_06_55.webp", 960],
+    "5003": ["Shadow Ghost Ship", "island_icon_91.webp", 960],
+    "1006": ["Twisting Darkness Legion", "achieve_13_11.webp", 960],
+    "3014": ["Ancheladus", "achieve_14_142.webp", 1040],
+    "3002": ["Sol Grande", "achieve_14_142.webp", 1040],
+    "6011": ["Gate of Guidance", "island_icon_89.webp", 1302],
+    "6006": ["Sailing Co-op: Punika", "achieve_06_55.webp", 1302],
+    "1008": ["Twisting Chaos Legion", "achieve_13_11.webp", 1302],
+    "5004": ["Tempest Ghost Ship", "island_icon_91.webp", 1370],
+    "3007": ["Aurion", "achieve_14_142.webp", 1385],
+    "3004": ["Brealeos", "achieve_14_142.webp", 1385],
+    "3015": ["Moake", "achieve_14_142.webp", 1415],
+    "5005": ["Sinful Ghost Ship", "island_icon_91.webp", 1415],
+    "1010": [
+        "Twisting Demon Legion (Appears randomly)",
+        "achieve_13_11.webp",
+        1415
+    ],
+    "3016": ["Thunderwings", "achieve_14_142.webp", 1460]
 }

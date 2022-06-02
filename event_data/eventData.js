@@ -17,6 +17,7 @@ const util = require('util');
 class LAEvent {
     constructor(id, month, day, time) {
         this.id = id;
+        this.name = getEventName(this.id);
         this.month = month;
         this.day = day;
         this.time = time;
@@ -24,7 +25,7 @@ class LAEvent {
 
     [util.inspect.custom](depth, opts) {
     // Gives the class a custom string representation when logging to the console.
-        return `Event: ${getEventName(this.id)}, ID: ${this.id}, Date: ${
+        return `Name: ${this.name}, ID: ${this.id}, Date: ${
             months[this.month]
         } ${this.day}, Time: ${this.time}`;
     }
@@ -58,7 +59,7 @@ function getAllEventNamesOfType(eventType_, log = false){
     // provide a string name of the event type, e.g. "Adventure Island"
 
     let outputNames;
-    if (eventType_ == "Adventure Island"){
+    if (eventType_ == 'Adventure Island'){
         // Easier to just cache this since it's very inefficient to generate from the dataset
         outputNames = adventureIslands;
     } else {
@@ -83,7 +84,7 @@ function getAllEventNamesOfType(eventType_, log = false){
         outputNames = [];
         eventIds.forEach((eventId) => {
             outputNames.push(eventNames[eventId][0]);
-        })
+        });
     }
 
 
@@ -94,7 +95,6 @@ function getAllEventNamesOfType(eventType_, log = false){
         });
     }
     
-    // Returns an array of string names
     return outputNames;
 }
 
@@ -128,6 +128,12 @@ function getAllEvents(log = false) {
     return outputEvents;
 }
 
+/**
+ * Get all events of a certain type
+ * @param {string} eventType_ As defined in msgs.json
+ * @param {boolean} log Log output
+ * @returns Array of LAevents
+ */
 function getAllEventsOfType(eventType_, log = false){
     // provide a string name of the event type, e.g. "Adventure Island"
     let outputEvents = [];
@@ -232,8 +238,41 @@ function getAllEventsOnDate(month_, day_, log = false) {
             console.log(event);
         });
     }
+    return outputEvents;
 }
 
+/**
+ * 
+ * @param {Array} eventCollection Array of LAEvents
+ * @param {Number} month The month
+ * @param {Number} day The day
+ * @param {Boolean} log Log output
+ * @returns 
+ */
+function filterEventsOnDate(eventCollection, month, day, log = false ) {
+    let outputEvents = eventCollection.filter((laEvent) => {
+        return (laEvent.month == month && laEvent.day == day);
+    });
+
+    if (log) {
+        console.log(
+            `Filtered events occuring on ${months[month]} ${day}`
+        );
+        outputEvents.forEach((event) => {
+            console.log(event);
+        });
+    }
+
+    return outputEvents;
+}
+
+/**
+ * 
+ * @param {Array} eventCollection Array of LAevents
+ * @param {String} datetime Datetime in a format of MMDDTTTT, where TTTT is military time without the colon
+ * @param {Boolean} log Log output
+ * @returns Array of LAevents in according to the datetime
+ */
 function filterEventsAfterTime(eventCollection, datetime, log = false) {
     // datetime format should be a string of format MMDDTTTT, where TTTT is military time without the colon
     let outputEvents = eventCollection.filter((lAEvent) => {
@@ -301,4 +340,6 @@ module.exports = {
     getAllEventsOfType,
     filterEventsAfterTime,
     sortEventsByTime,
+    getEventName,
+    filterEventsOnDate
 };
