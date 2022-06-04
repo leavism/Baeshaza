@@ -20,7 +20,7 @@ const client = new SapphireClient(
                     defaultJobOptions: {
                         removeOnComplete: true,
                         removeOnFail: true
-                      }
+                    }
                 }
             })
         }
@@ -53,4 +53,5 @@ String.prototype.titleCase = function () {
 
 client.login(config.devToken);
 
+// Uncomment this and run it once to clear the application commands from discord
 // setTimeout(() => client.application.commands.set([]), 2500);
