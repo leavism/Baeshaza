@@ -13,10 +13,6 @@
             "error",
             4
         ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
         "quotes": [
             "error",
             "single"
@@ -25,5 +21,6 @@
             "error",
             "always"
         ]
-    }
+    },
+    "plugins": ["only-warn"]
 }
