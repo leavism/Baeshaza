@@ -32,11 +32,11 @@ class welcomeMessage extends Listener {
             )
             .addField(
                 'Ways to introduce yourself',
-                '- What\'s your main and why aren\'t you a sexy gunlancer?\n- Are you looking to clear any specific content?\n- Are you hoping we run our parties on certain days and times?\n- Did you bring the sacrificial goat?'
+                '- What\'s your main and why aren\'t you a sexy gunlancer?\n- Are you looking to clear any specific content?\n- Did you bring the ceremonial goat for sacrifice?'
             )
             .addField(
                 'Want to test the waters?',
-                'We offer a trial membership if you\'d like to hang out for a bit to see how well we fit your needs. This way you won\'t be penalized for leaving us if things don\'t work out!',
+                'We offer a trial membership if you\'d like to see how well we fit your needs. This way you won\'t be penalized for leaving us if things don\'t work out!',
                 false
             )
             .setFooter(
