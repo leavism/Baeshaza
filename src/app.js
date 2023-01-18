@@ -1,10 +1,11 @@
 const config = require('./config.js');
 const { SapphireClient } = require('@sapphire/framework');
+const { GatewayIntentBits } = require('discord.js')
 const has = (obj, key) => Object.prototype.hasOwnProperty.call(obj, key);
 
 const client = new SapphireClient(
     { 
-        intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS'],
+        intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers],
         loadMessageCommandListeners: true
     }
 );
