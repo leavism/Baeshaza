@@ -10,7 +10,7 @@ export class UserEvent extends Listener<typeof Events.ContextMenuCommandDenied> 
 		return interaction.reply({
 			content,
 			allowedMentions: { users: [interaction.user.id], roles: [] },
-			ephemeral: true
+			ephemeral: true,
 		});
 	}
 }
