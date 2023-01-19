@@ -1,9 +1,8 @@
 import type { ChatInputCommandSuccessPayload, Command, ContextMenuCommandSuccessPayload, MessageCommandSuccessPayload } from '@sapphire/framework';
 import { container } from '@sapphire/framework';
-import { send } from '@sapphire/plugin-editable-commands';
 import { cyan } from 'colorette';
 import type { APIUser } from 'discord-api-types/v9';
-import { EmbedBuilder, Guild, Message, User } from 'discord.js';
+import { Guild, TextBasedChannel, User } from 'discord.js';
 import { RandomLoadingMessage } from './constants';
 
 /**
@@ -23,6 +22,17 @@ export function pickRandom<T>(array: readonly T[]): T {
  */
 export function getLoadingMessage(): string {
 	return pickRandom(RandomLoadingMessage);
+}
+
+export async function findTextChannel(guild: Guild, channelName: string): Promise<TextBasedChannel | null> {
+	const target = await guild.channels.fetch()
+		.then(channels => channels.filter(channel => channel?.isTextBased()).find(channel => channel?.name === channelName))
+		.catch(container.logger.error);
+
+	if (target?.isTextBased()) {
+		return target;
+	}
+	return null;
 }
 
 export function logSuccessCommand(payload: ContextMenuCommandSuccessPayload | ChatInputCommandSuccessPayload | MessageCommandSuccessPayload): void {
