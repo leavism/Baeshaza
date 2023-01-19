@@ -1,6 +1,8 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { Listener, Store } from '@sapphire/framework';
+import { pickRandom } from '@sapphire/utilities';
 import { blue, gray, green, magenta, magentaBright, white, yellow } from 'colorette';
+import { RandomAcivityMessage } from '../lib/constants';
 
 const dev = process.env.NODE_ENV !== 'production';
 
@@ -9,6 +11,7 @@ export class UserEvent extends Listener {
 	private readonly style = dev ? yellow : blue;
 
 	public run() {
+		this.container.client.user?.setPresence({ activities: [{ name: `${pickRandom(RandomAcivityMessage)}` }], status: 'online' });
 		this.printBanner();
 		this.printStoreDebugInformation();
 	}
