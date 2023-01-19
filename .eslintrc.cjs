@@ -3,6 +3,7 @@ module.exports = {
 	'parser': '@typescript-eslint/parser',
 	'plugins': ['@typescript-eslint'],
 	'root': true,
+	'ignorePatterns': ['*.js'],
 	'rules': {
 		'arrow-spacing': ['warn', { 'before': true, 'after': true }],
 		'brace-style': ['error', 'stroustrup', { 'allowSingleLine': true }],
