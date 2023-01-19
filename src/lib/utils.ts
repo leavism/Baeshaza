@@ -21,8 +21,8 @@ export function pickRandom<T>(array: readonly T[]): T {
  * Sends a loading message to the current channel
  * @param message The message data for which to send the loading message
  */
-export function sendLoadingMessage(message: Message): Promise<typeof message> {
-	return send(message, { embeds: [new EmbedBuilder().setDescription(pickRandom(RandomLoadingMessage)).setColor('#FF0000')] });
+export function getLoadingMessage(): string {
+	return pickRandom(RandomLoadingMessage);
 }
 
 export function logSuccessCommand(payload: ContextMenuCommandSuccessPayload | ChatInputCommandSuccessPayload | MessageCommandSuccessPayload): void {
