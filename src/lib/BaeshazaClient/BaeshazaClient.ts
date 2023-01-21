@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client';
 import { container, SapphireClient } from '@sapphire/framework';
 import { ClientOptions } from 'discord.js';
 import { BaeshazaDB } from './BashazaDB';

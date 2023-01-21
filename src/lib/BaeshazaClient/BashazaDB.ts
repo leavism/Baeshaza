@@ -55,19 +55,19 @@ export class BaeshazaDB extends PrismaClient {
 
 	/**
 	 * Creates an incident entry in the database
-	 * @param incident Object containing info pertaining to the incident entry
+	 * @param report Object containing info pertaining to the incident entry
 	 */
-	public async createIncident(incident: {
+	public async createIncident(report: {
 		discordId: string,
 		description: string,
 	}): Promise<void> {
 		await BaeshazaDB.instance.user.update({
 			where: {
-				discord_id: incident.discordId,
+				discord_id: report.discordId,
 			},
 			data: {
-				incidences: {
-					create: { description: incident.description },
+				incident: {
+					create: { description: report.description },
 				},
 			},
 		});

@@ -6,7 +6,7 @@ import { EmbedBuilder, codeBlock, version as discordVersion } from 'discord.js';
 @ApplyOptions<Command.Options>({
 	description: 'Gets info and stats for the Discord bot.',
 })
-export class UserCommand extends Command {
+export class StatsCommand extends Command {
 	public override registerApplicationCommands(registry: Command.Registry) {
 		registry.registerChatInputCommand({
 			name: this.name,
