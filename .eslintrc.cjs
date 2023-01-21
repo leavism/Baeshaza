@@ -27,6 +27,7 @@ module.exports = {
 		'no-shadow': ['error', { 'allow': ['err', 'resolve', 'reject'] }],
 		'no-trailing-spaces': ['error'],
 		'no-var': 'error',
+		'@typescript-eslint/no-non-null-assertion': 'off',
 		'object-curly-spacing': ['error', 'always'],
 		'prefer-const': 'error',
 		'quotes': ['error', 'single'],
