@@ -1,43 +1,37 @@
+import { EmbedBuilder } from '@discordjs/builders';
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command } from '@sapphire/framework';
-import { send } from '@sapphire/plugin-editable-commands';
-import { ApplicationCommandType, Message } from 'discord.js';
+import { Interaction, Message, codeBlock } from 'discord.js';
+import { getLoadingMessage } from '../../lib/utils';
 
 @ApplyOptions<Command.Options>({
-	description: 'Get the bot and Discord API latency',
+	description: 'Get the bot client and Discord API latency',
 })
 export class UserCommand extends Command {
-	// Register slash and context menu command
 	public override registerApplicationCommands(registry: Command.Registry) {
-		// Register slash command
 		registry.registerChatInputCommand({
 			name: this.name,
 			description: this.description,
 		});
 	}
-	// slash command
-	public async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
-		const msg = await interaction.reply({ content: 'Ping?', fetchReply: true });
 
-		const content = `Pong! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
-			msg.createdTimestamp - interaction.createdTimestamp
-		}ms.`;
-
-		return await interaction.editReply({
-			content: content,
-		});
+	private constructPingEmbed(message: Message, loading: Interaction): EmbedBuilder {
+		return new EmbedBuilder()
+			.setAuthor(
+				{ name: `${this.container.client.user?.tag}`, iconURL: `${this.container.client.user?.avatarURL()}` }
+			)
+			.addFields(
+				{ name: '🤖 Client Latency', value: codeBlock(`${this.container.client.ws.ping}ms`), inline: true },
+				{ name: '📡 API Latency', value: codeBlock(`${message.createdTimestamp - loading.createdTimestamp}ms`), inline: true },
+			);
 	}
 
-	// context menu command
-	public async contextMenuRun(interaction: Command.ContextMenuCommandInteraction) {
-		const msg = await interaction.reply({ content: 'Ping?', fetchReply: true });
-
-		const content = `Pong! Bot Latency ${Math.round(this.container.client.ws.ping)}ms. API Latency ${
-			msg.createdTimestamp - interaction.createdTimestamp
-		}ms.`;
+	public async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
+		const loadingMessage = await interaction.reply({ content: getLoadingMessage(), fetchReply: true });
 
 		return await interaction.editReply({
-			content: content,
+			content: '',
+			embeds: [ this.constructPingEmbed(loadingMessage, interaction)],
 		});
 	}
 }
