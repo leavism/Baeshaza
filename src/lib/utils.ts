@@ -41,6 +41,21 @@ export async function findTextChannel(guild: Guild, channelName: string): Promis
 	return null;
 }
 
+/**
+ * Parses a modalId like a URI search query
+ * @param modalId String containing the information needed to pass to the modal
+ * @returns The parsed modalId as a key-value JS object
+ */
+export function parseModalId(modalId: string): { [property: string]: string } {
+	const query: { [property: string]: string } = {};
+	const pairs = (modalId[0] === '?' ? modalId.substring(1) : modalId.substring(modalId.indexOf('?') + 1)).split('&');
+	for (let i = 0; i < pairs.length; i++) {
+		const pair = pairs[i].split('=');
+		query[pair[0]] = pair[1] || '';
+	}
+	return query;
+}
+
 export function logSuccessCommand(payload: ContextMenuCommandSuccessPayload | ChatInputCommandSuccessPayload | MessageCommandSuccessPayload): void {
 	let successLoggerData: ReturnType<typeof getSuccessLoggerData>;
 
