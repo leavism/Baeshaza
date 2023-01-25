@@ -20,7 +20,7 @@ export class SendHeartgramCommand extends Command {
 		const authorId: string = interaction.member!.user.id;
 
 		const sendHeartgramModal = new ModalBuilder()
-			.setCustomId(`sendHeartgramModal?targetId=${targetId}&authorId=${authorId}`)
+			.setCustomId(`sendHeartgramModal?targetId=${targetId}&authorId=${authorId}&anonymous=false`)
 			.setTitle(`Send ${targetDisplayName} a Heartgram`);
 
 		const heartgramDescription = new TextInputBuilder()
