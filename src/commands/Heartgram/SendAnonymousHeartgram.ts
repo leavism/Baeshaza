@@ -1,5 +1,6 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command } from '@sapphire/framework';
+import { RateLimitManager } from '@sapphire/ratelimits';
 import { ActionRowBuilder, ApplicationCommandType, GuildMember, ModalBuilder, TextInputBuilder, TextInputStyle, UserContextMenuCommandInteraction } from 'discord.js';
 
 @ApplyOptions<Command.Options>({})
@@ -17,9 +18,10 @@ export class SendAnonymousHeartgramCommand extends Command {
 			interaction.targetId : interaction.options.getUser('member')!.id;
 		const targetDisplayName: string = interaction instanceof UserContextMenuCommandInteraction ?
 			interaction.targetMember.displayName : interaction.options.getUser('member')!.username;
+		const authorId: string = interaction.member!.user.id;
 
 		const sendHeartgramModal = new ModalBuilder()
-			.setCustomId(`sendHeartgramModal?targetId=${targetId}&authorId=anonymous`)
+			.setCustomId(`sendHeartgramModal?targetId=${targetId}&authorId=${authorId}&anonymous=true`)
 			.setTitle(`Send ${targetDisplayName} a Heartgram`);
 
 		const sendHeartgramDescription = new TextInputBuilder()
