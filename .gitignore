@@ -19,6 +19,7 @@ DEV_README.md
 
 # Config files
 config.ts
+prisma/dev.db
 
 # Log files
 *.log
