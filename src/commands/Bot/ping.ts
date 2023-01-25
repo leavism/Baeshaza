@@ -15,7 +15,7 @@ export class PingCommand extends Command {
 		});
 	}
 
-	private constructPingEmbed(message: Message, loading: Interaction): EmbedBuilder {
+	private buildPingEmbed(message: Message, loading: Interaction): EmbedBuilder {
 		return new EmbedBuilder()
 			.setAuthor(
 				{ name: `${this.container.client.user?.tag}`, iconURL: `${this.container.client.user?.avatarURL()}` }
@@ -31,7 +31,7 @@ export class PingCommand extends Command {
 
 		return await interaction.editReply({
 			content: '',
-			embeds: [ this.constructPingEmbed(loadingMessage, interaction)],
+			embeds: [ this.buildPingEmbed(loadingMessage, interaction)],
 		});
 	}
 }

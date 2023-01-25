@@ -14,7 +14,7 @@ export class StatsCommand extends Command {
 		});
 	}
 
-	private constructStatsEmbed(): EmbedBuilder {
+	private buildStatsEmbed(): EmbedBuilder {
 		return new EmbedBuilder()
 			.setAuthor({ name: `${this.container.client.user?.tag}` })
 			.setColor(0x04ff70)
@@ -31,6 +31,6 @@ export class StatsCommand extends Command {
 	}
 
 	public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
-		return await interaction.reply({ embeds: [this.constructStatsEmbed()] });
+		return await interaction.reply({ embeds: [this.buildStatsEmbed()] });
 	}
 }
