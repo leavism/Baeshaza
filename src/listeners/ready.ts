@@ -10,7 +10,7 @@ const dev = process.env.NODE_ENV !== 'production';
 export class UserEvent extends Listener {
 	private readonly style = dev ? yellow : blue;
 
-	public run() {
+	public async run() {
 		this.container.client.user?.setPresence({ activities: [{ name: `${pickRandom(RandomAcivityMessage)}` }], status: 'online' });
 		this.printBanner();
 		this.printStoreDebugInformation();
@@ -47,6 +47,7 @@ ${line03}${dev ? ` ${pad}${blc('<')}${llc('/')}${blc('>')} ${llc('DEVELOPMENT MO
 		logger.info(this.styleStore(last, true));
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	private styleStore(store: Store<any>, last: boolean) {
 		return gray(`${last ? '└─' : '├─'} Loaded ${this.style(store.size.toString().padEnd(3, ' '))} ${store.name}.`);
 	}
