@@ -11,14 +11,32 @@ datasource db {
 }
 
 model User {
-    id         Int          @id @default(autoincrement())
-    discord_id String       @unique
-    incidences Incidences[]
+    id                Int         @id @default(autoincrement())
+    discord_id        String      @unique
+    incident          Incident[]  @relation(name: "incidentCulprit")
+    authorOfIncident  Incident[]  @relation(name: "incidentAuthor")
+    Heartgram         Heartgram[] @relation(name: "heartgramReceiver")
+    authorOfHeartgram Heartgram[] @relation(name: "heartgramAuthor")
 }
 
-model Incidences {
-    id          Int    @id @default(autoincrement())
-    user        User   @relation(fields: [user_id], references: [id])
-    user_id     Int
-    description String
+model Incident {
+    id              Int      @id @default(autoincrement())
+    culprit         User     @relation(name: "incidentCulprit", fields: [culprit_user_id], references: [id])
+    culprit_user_id Int
+    description     String
+    author          User     @relation(name: "incidentAuthor", fields: [author_user_id], references: [id])
+    author_user_id  Int
+    createdAt       DateTime @default(now())
+    updatedAt       DateTime @updatedAt
+}
+
+model Heartgram {
+    id               Int      @id @default(autoincrement())
+    receiver         User     @relation(name: "heartgramReceiver", fields: [receiver_user_id], references: [id])
+    receiver_user_id Int
+    description      String
+    author           User     @relation(name: "heartgramAuthor", fields: [author_user_id], references: [id])
+    author_user_id   Int
+    createdAt        DateTime @default(now())
+    updatedAt        DateTime @updatedAt
 }
