@@ -3,8 +3,6 @@ import { EmbedBuilder, InteractionResponse, ModalSubmitInteraction } from 'disco
 import { findTextChannel, parseModalId } from '../lib/utils';
 
 export class SendHeartgramModalHandler extends InteractionHandler {
-	private heartgramRateLimit = this.container.heartgramRateLimitManager.acquire('heartgram');
-
 	public constructor(context: PieceContext, options: InteractionHandler.Options) {
 		super(context, {
 			...options,
@@ -67,6 +65,8 @@ export class SendHeartgramModalHandler extends InteractionHandler {
 
 	public async run(interaction: ModalSubmitInteraction): Promise<InteractionResponse<boolean> | undefined> {
 		const parsedModalId: { [property: string]: string } = parseModalId(interaction.customId);
+		const heartgramRateLimit = this.container.heartgramRateLimitManager.acquire(`heartgram?discordId=${parsedModalId.authorId}`);
+
 		if (parsedModalId.authorId === parsedModalId.targetId) {
 			return await interaction.reply({
 				content: 'You can\'t send yourself a Heartgram lmao',
@@ -74,7 +74,7 @@ export class SendHeartgramModalHandler extends InteractionHandler {
 			});
 		}
 
-		if (this.heartgramRateLimit.limited) {
+		if (heartgramRateLimit.limited) {
 			return await interaction.reply({
 				content: 'You can only send two Heartgrams a day',
 				ephemeral: true,
@@ -85,7 +85,7 @@ export class SendHeartgramModalHandler extends InteractionHandler {
 		await modLogChannel?.send({ embeds: [await this.buildHeartgramLogEmbed(parsedModalId, interaction)] });
 		await this.container.client.users.send(parsedModalId.targetId, { embeds: [await this.buildHeartgramEmbed(parsedModalId, interaction)] });
 
-		this.heartgramRateLimit.consume();
+		heartgramRateLimit.consume();
 		return await interaction.reply({
 			content: 'Your Heartgram has been sent!',
 			ephemeral: true,
