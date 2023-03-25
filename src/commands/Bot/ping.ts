@@ -7,6 +7,7 @@ import { getLoadingMessage } from '../../lib/utils';
 @ApplyOptions<Command.Options>({
 	description: 'Get the bot client and Discord API latency',
 })
+
 export class PingCommand extends Command {
 	public override registerApplicationCommands(registry: Command.Registry) {
 		registry.registerChatInputCommand({
