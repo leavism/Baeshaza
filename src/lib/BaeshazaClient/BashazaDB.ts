@@ -46,7 +46,7 @@ export class BaeshazaDB extends PrismaClient {
 
 	/**
 	 * Checks whether a user entry exists, then creates it in the database
-	 * @param discordId Discord ID of user to check then create
+	 * @param discordId Discord ID of user
 	 */
 	public async checkThenCreateUser(discordId: string): Promise<void> {
 		if (await this.checkUser(discordId)) return;
@@ -85,6 +85,11 @@ export class BaeshazaDB extends PrismaClient {
 		});
 	}
 
+	/**
+	 * Gets all the incidents pertaining to a Discord user
+	 * @param discordId Discord ID of target user
+	 * @returns A List of modal incident
+	 */
 	public async findAllIncidents(discordId: string): Promise<Incident[]> {
 		return await BaeshazaDB.instance.incident.findMany({
 			where: {
@@ -95,14 +100,22 @@ export class BaeshazaDB extends PrismaClient {
 		});
 	}
 
-	public async findIncident(id: number): Promise<Incident | null> {
+	/**
+	 * Gets an incident
+	 * @param indicentID The ID of the incident
+	 * @returns The incident modal
+	 */
+	public async findIncident(indicentID: number): Promise<Incident | null> {
 		return await BaeshazaDB.instance.incident.findUnique({
 			where: {
-				id: id,
+				id: indicentID,
 			},
 		});
 	}
 
+	/**
+	 * Does the procedure of closing the database connection
+	 */
 	public static destroy(): void {
 		BaeshazaDB.instance.$disconnect();
 	}
