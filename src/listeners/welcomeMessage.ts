@@ -13,7 +13,7 @@ export class WelcomeMessage extends Listener {
 		});
 	}
 
-	private async constructWelcomeEmbed(member: GuildMember): Promise<EmbedBuilder> {
+	private async buildWelcomeEmbed(member: GuildMember): Promise<EmbedBuilder> {
 		const rulesChannel = await findTextChannel(member.guild, 'rules');
 		const welcomeChannel = await findTextChannel(member.guild, 'welcome');
 
@@ -48,7 +48,7 @@ export class WelcomeMessage extends Listener {
 	public async run(member: GuildMember) {
 		const welcomeChannel = member.guild.systemChannel;
 		return welcomeChannel?.send({
-			embeds: [await this.constructWelcomeEmbed(member)],
+			embeds: [await this.buildWelcomeEmbed(member)],
 		});
 	}
 }

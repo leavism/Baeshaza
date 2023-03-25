@@ -4,9 +4,9 @@
   "display": "Node 16",
 
   "compilerOptions": {
-	"rootDir": "src",
-	"outDir": "dist",
-	// "tsBuildInfoFile": "dist/.tsbuildinfo",
+    "rootDir": "src",
+    "outDir": "dist",
+    // "tsBuildInfoFile": "dist/.tsbuildinfo",
 
     "lib": ["es2021"],
     "module": "commonjs",

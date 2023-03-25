@@ -4,6 +4,9 @@ import { Listener, ListenerOptions } from '@sapphire/framework';
 import { GuildMember } from 'discord.js';
 import { findTextChannel } from '../lib/utils';
 
+/**
+ * Sends a logging message to mod-log channel whenever a user joins the Discord server.
+ */
 @ApplyOptions<ListenerOptions>({})
 export class MemberJoinLog extends Listener {
 	public constructor(context: Listener.Context, options: Listener.Options) {
@@ -13,7 +16,7 @@ export class MemberJoinLog extends Listener {
 		});
 	}
 
-	async constructJoinEmbed(member: GuildMember) {
+	async buildJoinEmbed(member: GuildMember) {
 		const createdDaysAgo = `(${Math.round((new Date().valueOf() - member.user.createdAt.valueOf()) / (24 * 60 * 60 * 1000))} days ago)`;
 
 		return new EmbedBuilder()
@@ -34,7 +37,7 @@ export class MemberJoinLog extends Listener {
 		const modLogChannel = await findTextChannel(member.guild, 'mod-log');
 
 		return modLogChannel?.send({
-			embeds: [await this.constructJoinEmbed(member)],
+			embeds: [await this.buildJoinEmbed(member)],
 		});
 	}
 }

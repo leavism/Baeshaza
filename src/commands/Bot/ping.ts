@@ -7,7 +7,8 @@ import { getLoadingMessage } from '../../lib/utils';
 @ApplyOptions<Command.Options>({
 	description: 'Get the bot client and Discord API latency',
 })
-export class UserCommand extends Command {
+
+export class PingCommand extends Command {
 	public override registerApplicationCommands(registry: Command.Registry) {
 		registry.registerChatInputCommand({
 			name: this.name,
@@ -15,7 +16,7 @@ export class UserCommand extends Command {
 		});
 	}
 
-	private constructPingEmbed(message: Message, loading: Interaction): EmbedBuilder {
+	private buildPingEmbed(message: Message, loading: Interaction): EmbedBuilder {
 		return new EmbedBuilder()
 			.setAuthor(
 				{ name: `${this.container.client.user?.tag}`, iconURL: `${this.container.client.user?.avatarURL()}` }
@@ -31,7 +32,7 @@ export class UserCommand extends Command {
 
 		return await interaction.editReply({
 			content: '',
-			embeds: [ this.constructPingEmbed(loadingMessage, interaction)],
+			embeds: [ this.buildPingEmbed(loadingMessage, interaction)],
 		});
 	}
 }

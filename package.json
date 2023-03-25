@@ -3,6 +3,7 @@
 	"main": "dist/index.js",
 	"license": "UNLICENSE",
 	"dependencies": {
+		"@prisma/client": "^4.9.0",
 		"@sapphire/decorators": "^6.0.0",
 		"@sapphire/discord-utilities": "^3.0.0",
 		"@sapphire/discord.js-utilities": "6.0.0",
@@ -12,6 +13,7 @@
 		"@sapphire/plugin-editable-commands": "^3.0.0",
 		"@sapphire/plugin-logger": "^3.0.1",
 		"@sapphire/plugin-subcommands": "^4.0.0",
+		"@sapphire/ratelimits": "^2.4.5",
 		"@sapphire/time-utilities": "^1.7.8",
 		"@sapphire/type": "^2.3.0",
 		"@sapphire/utilities": "^3.11.0",
@@ -19,7 +21,9 @@
 		"discord-api-types": "^0.37.26",
 		"discord.js": "^14.7.1",
 		"dotenv-cra": "^3.0.2",
-		"reflect-metadata": "^0.1.13"
+		"reflect-metadata": "^0.1.13",
+		"sqlite3": "^5.1.4",
+		"table": "^6.8.1"
 	},
 	"devDependencies": {
 		"@sapphire/prettier-config": "^1.4.4",
@@ -32,6 +36,7 @@
 		"eslint": "^8.32.0",
 		"npm-run-all": "^4.1.5",
 		"prettier": "^2.8.2",
+		"prisma": "^4.9.0",
 		"tsc-watch": "^6.0.0",
 		"typescript": "^4.9.4"
 	},

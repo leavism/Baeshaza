@@ -1,10 +1,9 @@
 import './lib/setup';
-import { LogLevel, SapphireClient } from '@sapphire/framework';
+import { LogLevel } from '@sapphire/framework';
 import { GatewayIntentBits, Partials } from 'discord.js';
+import { BaeshazaClient } from './lib/BaeshazaClient/BaeshazaClient';
 
-const client = new SapphireClient({
-	defaultPrefix: '!',
-	regexPrefix: /^(hey +)?bot[,! ]/i,
+const client = new BaeshazaClient({
 	caseInsensitiveCommands: true,
 	logger: {
 		level: LogLevel.Debug,
@@ -26,9 +25,9 @@ const client = new SapphireClient({
 
 const main = async () => {
 	try {
-		client.logger.info('Logging in');
+		client.logger.info('Logging in...');
 		await client.login();
-		client.logger.info('logged in');
+		client.logger.info('Successful logged in!');
 	} catch (error) {
 		client.logger.fatal(error);
 		client.destroy();

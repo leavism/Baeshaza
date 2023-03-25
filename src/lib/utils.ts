@@ -17,22 +17,43 @@ export function pickRandom<T>(array: readonly T[]): T {
 }
 
 /**
- * Sends a loading message to the current channel
- * @param message The message data for which to send the loading message
+ * Provides a random loading message
+ * @returns A random loading message
  */
 export function getLoadingMessage(): string {
 	return pickRandom(RandomLoadingMessage);
 }
 
+/**
+ * Finds a specified text channel within a Discord guild
+ * @param guild The Discord guild to look in
+ * @param channelName The name of the text channel
+ * @returns The TextChannel
+ */
 export async function findTextChannel(guild: Guild, channelName: string): Promise<TextBasedChannel | null> {
 	const target = await guild.channels.fetch()
-		.then(channels => channels.filter(channel => channel?.isTextBased()).find(channel => channel?.name === channelName))
+		.then(channels => channels.find(channel => channel?.name === channelName))
 		.catch(container.logger.error);
 
 	if (target?.isTextBased()) {
 		return target;
 	}
 	return null;
+}
+
+/**
+ * Parses a modalId like a URI search query
+ * @param modalId String containing the information needed to pass to the modal
+ * @returns The parsed modalId as a key-value JS object
+ */
+export function parseModalId(modalId: string): { [property: string]: string } {
+	const query: { [property: string]: string } = {};
+	const pairs = (modalId[0] === '?' ? modalId.substring(1) : modalId.substring(modalId.indexOf('?') + 1)).split('&');
+	for (let i = 0; i < pairs.length; i++) {
+		const pair = pairs[i].split('=');
+		query[pair[0]] = pair[1] || '';
+	}
+	return query;
 }
 
 export function logSuccessCommand(payload: ContextMenuCommandSuccessPayload | ChatInputCommandSuccessPayload | MessageCommandSuccessPayload): void {

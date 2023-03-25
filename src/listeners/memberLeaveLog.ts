@@ -4,6 +4,11 @@ import { Listener, ListenerOptions } from '@sapphire/framework';
 import { GuildMember } from 'discord.js';
 import { findTextChannel } from '../lib/utils';
 
+/**
+ * Sends a logging message to mod-log channel whenever a user is removed from the Discord server.
+ * Due to limitations of Discordjs, if the user is not in the bot's cache, the guildMemberRemove
+ * event won't be emitted for them.
+ */
 @ApplyOptions<ListenerOptions>({})
 export class MemberLeaveLog extends Listener {
 	public constructor(context: Listener.Context, options: Listener.Options) {
@@ -13,7 +18,7 @@ export class MemberLeaveLog extends Listener {
 		});
 	}
 
-	async constructJoinEmbed(member: GuildMember) {
+	async buildLeaveEmbed(member: GuildMember) {
 		const createdDaysAgo = `(${Math.round((new Date().valueOf() - member.user.createdAt.valueOf()) / (24 * 60 * 60 * 1000))} days ago)`;
 
 		return new EmbedBuilder()
@@ -34,7 +39,7 @@ export class MemberLeaveLog extends Listener {
 		const modLogChannel = await findTextChannel(member.guild, 'mod-log');
 
 		return modLogChannel?.send({
-			embeds: [await this.constructJoinEmbed(member)],
+			embeds: [await this.buildLeaveEmbed(member)],
 		});
 	}
 }
